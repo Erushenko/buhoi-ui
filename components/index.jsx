@@ -7,6 +7,7 @@ const Menu = require('./menu')
 const Same = require('./same')
 const TextInput = require('./text-input')
 const Calendar = require('./calendar')
+const DateRangeInput = require('./date-range-input')
 const DateRangeFilter = require('./date-range-filter')
 const Select = require('./select')
 
@@ -19,7 +20,7 @@ const components = {
 	TextInput,
 	Select,
 	Calendar,
-	DateRangeFilter,
+	DateRangeInput,
 }
 
 module.exports = components
@@ -27,10 +28,29 @@ module.exports = components
 if (process.env.NODE_ENV == 'development') {
 	const { createStore, combineReducers, applyMiddleware } = require('redux')
 	const logger = require('redux-logger')
+	const moment = require('moment')
+	const periods = [{
+		name: 'Today',
+		range: [
+			moment().startOf('day'),
+			moment().endOf('day'),
+		],
+	},
+	{
+		name: 'Yesterday',
+		range: [
+			moment().subtract(1, 'day').startOf('day'),
+			moment().subtract(1, 'day').endOf('day'),
+		],
+	}]
+	const optionsDateRangeInput = {
+		periods,
+		dateFormat: moment().format('L'),
+	}
 
 	const reducers = combineReducers({
 		textInput: TextInput.reducer,
-		dateRangeFilter: DateRangeFilter.reducer,
+		dateRangeInput: DateRangeInput.reducer,
 	})
 
 	const store = createStore(reducers, applyMiddleware(logger()))
@@ -50,10 +70,15 @@ if (process.env.NODE_ENV == 'development') {
 		module.hot.accept(() => store.dispatch({ type: 'HOT_RELOAD' }))
 	}
 
-	function AllComponents ({ textInput, dateRangeFilter, dispatch }) { // eslint-disable-line no-inner-declarations
+	function AllComponents ({ textInput, dateRangeInput, dispatch }) { // eslint-disable-line no-inner-declarations
 		return <div>
 			<TextInput {...textInput} label="text input" onChange={v => dispatch(TextInput.actions.setValue(v))} />
-			<DateRangeFilter {...dateRangeFilter} onChange={() => null} dispatch={dispatch} />
+			<DateRangeInput
+				{...dateRangeInput}
+				onChange={d => dispatch(DateRangeInput.actions.setDateRangeValue(d))}
+				options={optionsDateRangeInput}
+				dispatch={dispatch}
+			/>
 		</div>
 	}
 }

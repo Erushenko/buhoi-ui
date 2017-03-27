@@ -6,9 +6,9 @@ const Multiselect = require('./multiselect')
 const Menu = require('./menu')
 const Same = require('./same')
 const TextInput = require('./text-input')
-const Select = require('./select')
 const Calendar = require('./calendar')
 const DateRangeInput = require('./date-range-input')
+const Select = require('./select')
 
 const components = {
 	List,

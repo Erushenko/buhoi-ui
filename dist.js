@@ -17899,10 +17899,9 @@ var Multiselect = __webpack_require__(136);
 var Menu = __webpack_require__(135);
 var Same = __webpack_require__(4);
 var TextInput = __webpack_require__(138);
+var Select = __webpack_require__(137);
 var Calendar = __webpack_require__(8);
 var DateRangeInput = __webpack_require__(132);
-var DateRangeFilter = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./date-range-filter\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-var Select = __webpack_require__(137);
 
 var components = {
 	List: List,

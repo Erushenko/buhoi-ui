@@ -1,4 +1,5 @@
-const { rest, combineReducers } = require('buhoi-client')
+const { read } = require('buhoi-client').actions
+const { combineReducers } = require('redux')
 const Same = require('../same')
 
 require('./style.scss')
@@ -23,6 +24,11 @@ function Select (props) {
 		return <Same />
 	}
 
+	if (!value) {
+		dispatch(setValue(items[0]))
+		onChange(items[0])
+	}
+
 	return <div className="select">
 		<span>{label}</span>
 		<select onChange={handleChange}>{items.map(it =>
@@ -32,12 +38,14 @@ function Select (props) {
 
 	function handleChange (ev) {
 		const id = ev.target.value
-		onChange(items.find(it => it.id == id))
+		const selectIt = items.find(it => it.id == id)
+		dispatch(setValue(selectIt))
+		onChange(selectIt)
 	}
 }
 
 function fetch (resource, query) {
-	return rest.read('SELECT_LOADING', resource, query)
+	return read('SELECT_LOADING', resource, query)
 }
 
 function setValue (value) {

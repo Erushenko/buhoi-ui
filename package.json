@@ -43,6 +43,7 @@
   "babel": {},
   "scripts": {
     "start": "json-server --watch mocks.json & NODE_ENV=development webpack-dev-server --inline --hot",
+    "webpack": "webpack -w",
     "build": "webpack -p",
     "lint": "eslint . --ext .js,.jsx",
     "precommit": "lint-staged",
@@ -52,5 +53,8 @@
   "lint-staged": {
     "*.js": "eslint",
     "*.jsx": "eslint"
+  },
+  "dependencies": {
+    "buhoi-client": "^2.0.3"
   }
 }

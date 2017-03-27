@@ -1701,6 +1701,11 @@ function Select(props) {
 		return createVNode(16, Same);
 	}
 
+	if (!value) {
+		dispatch(setValue(items[0]));
+		onChange(items[0]);
+	}
+
 	return createVNode(2, 'div', {
 		'className': 'select'
 	}, [createVNode(2, 'span', null, label), createVNode(2048, 'select', null, items.map(function (it) {

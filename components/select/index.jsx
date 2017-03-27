@@ -24,6 +24,11 @@ function Select (props) {
 		return <Same />
 	}
 
+	if (!value) {
+		dispatch(setValue(items[0]))
+		onChange(items[0])
+	}
+
 	return <div className="select">
 		<span>{label}</span>
 		<select onChange={handleChange}>{items.map(it =>

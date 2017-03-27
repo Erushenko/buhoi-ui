@@ -9,6 +9,7 @@ const TextInput = require('./text-input')
 const Calendar = require('./calendar')
 const DateRangeInput = require('./date-range-input')
 const Select = require('./select')
+const Grouping = require('./grouping')
 
 const components = {
 	List,
@@ -20,6 +21,7 @@ const components = {
 	Select,
 	Calendar,
 	DateRangeInput,
+	Grouping,
 }
 
 module.exports = components

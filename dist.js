@@ -2087,6 +2087,8 @@ function List(props) {
 	    query = props.query,
 	    _props$Query = props.Query,
 	    Query = _props$Query === undefined ? NoQuery : _props$Query,
+	    _props$Toolbar = props.Toolbar,
+	    Toolbar = _props$Toolbar === undefined ? NoToolbar : _props$Toolbar,
 	    Table = props.Table,
 	    _props$Loading = props.Loading,
 	    Loading = _props$Loading === undefined ? DefaultLoading : _props$Loading,
@@ -2123,7 +2125,7 @@ function List(props) {
 		return createVNode(16, LoadingError, _extends({}, props));
 	}
 
-	return createVNode(2, 'div', null, [Query(props), Table(props)]);
+	return createVNode(2, 'div', null, [Query(props), Toolbar(props), Table(props)]);
 }
 
 function isNotInitialized(_ref) {
@@ -2173,6 +2175,8 @@ function DefaultLoadingError(_ref6) {
 
 	return error ? createVNode(2, 'p', null, ['Loading error: ', error.message]) : createVNode(2, 'p', null, 'Loading error');
 }
+
+function NoToolbar() {}
 
 /***/ }),
 /* 24 */

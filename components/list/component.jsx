@@ -11,6 +11,7 @@ function List (props) {
 		query,
 
 		Query = NoQuery,
+		Toolbar = NoToolbar,
 		Table,
 		Loading = DefaultLoading,
 		LoadingError = DefaultLoadingError,
@@ -47,6 +48,7 @@ function List (props) {
 
 	return <div>
 		{Query(props)}
+		{Toolbar(props)}
 		{Table(props)}
 	</div>
 }
@@ -86,4 +88,7 @@ function DefaultLoadingError ({ error }) {
 	return error
 		? <p>Loading error: {error.message}</p>
 		: <p>Loading error</p>
+}
+
+function NoToolbar () {
 }

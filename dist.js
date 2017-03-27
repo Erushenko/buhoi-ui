@@ -16857,7 +16857,7 @@ var _require = __webpack_require__(141),
     defaultPeriods = _require.defaultPeriods,
     defaultFormat = _require.defaultFormat;
 
-var _require2 = __webpack_require__(5),
+var _require2 = __webpack_require__(1),
     combineReducers = _require2.combineReducers;
 
 var Calendar = __webpack_require__(8);

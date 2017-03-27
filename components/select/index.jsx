@@ -1,4 +1,5 @@
-const { rest, combineReducers } = require('buhoi-client')
+const { read } = require('buhoi-client').actions
+const { combineReducers } = require('redux')
 const Same = require('../same')
 
 require('./style.scss')
@@ -37,7 +38,7 @@ function Select (props) {
 }
 
 function fetch (resource, query) {
-	return rest.read('SELECT_LOADING', resource, query)
+	return read('SELECT_LOADING', resource, query)
 }
 
 function setValue (value) {

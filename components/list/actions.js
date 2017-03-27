@@ -38,7 +38,7 @@ function setPageSize (size, invalidateList = true) {
 }
 
 function loadItems (resource, query) {
-	return read('LIST_LOADING', resource, { query })
+	return read('LIST_LOADING', resource, { query: encodeURIComponent(JSON.stringify(query)) })
 }
 
 function invalidate () {

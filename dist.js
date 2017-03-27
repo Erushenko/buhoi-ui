@@ -5290,7 +5290,7 @@ function setPageSize(size) {
 }
 
 function loadItems(resource, query) {
-	return read('LIST_LOADING', resource, { query: query });
+	return read('LIST_LOADING', resource, { query: encodeURIComponent(JSON.stringify(query)) });
 }
 
 function invalidate() {

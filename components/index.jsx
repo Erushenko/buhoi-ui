@@ -8,7 +8,6 @@ const Same = require('./same')
 const TextInput = require('./text-input')
 const Calendar = require('./calendar')
 const DateRangeInput = require('./date-range-input')
-const DateRangeFilter = require('./date-range-filter')
 const Select = require('./select')
 
 const components = {

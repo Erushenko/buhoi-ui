@@ -33,7 +33,9 @@ function Select (props) {
 
 	function handleChange (ev) {
 		const id = ev.target.value
-		onChange(items.find(it => it.id == id))
+		const selectIt = items.find(it => it.id == id)
+		dispatch(setValue(selectIt))
+		onChange(selectIt)
 	}
 }
 

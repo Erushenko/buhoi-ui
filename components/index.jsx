@@ -6,6 +6,7 @@ const Multiselect = require('./multiselect')
 const Menu = require('./menu')
 const Same = require('./same')
 const TextInput = require('./text-input')
+const Select = require('./select')
 
 const components = {
 	List,
@@ -14,6 +15,7 @@ const components = {
 	Menu,
 	Same,
 	TextInput,
+	Select,
 }
 
 module.exports = components

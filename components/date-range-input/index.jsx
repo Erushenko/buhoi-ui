@@ -13,7 +13,7 @@ DateRangeInput.reducer = combineReducers({
 })
 module.exports.actions = { setDateRangeValue }
 
-function DateRangeInput ({ mode, dateRange, onChange, options, dispatch }) {
+function DateRangeInput ({ mode, label, dateRange, onChange = NoOnChange, options, dispatch }) {
 	if (!options) {
 		options = {
 			periods: defaultPeriods,
@@ -26,7 +26,7 @@ function DateRangeInput ({ mode, dateRange, onChange, options, dispatch }) {
 	} = options
 
 	if (!dateRange) {
-		onChange([
+		handlerOnChange([
 			moment().startOf('day').add(-7, 'days').toDate(),
 			moment().endOf('day').toDate(),
 		])
@@ -40,22 +40,22 @@ function DateRangeInput ({ mode, dateRange, onChange, options, dispatch }) {
 		const beginDate = d.startOf('day').toDate()
 		const endDate = dateRange[1]
 		if (beginDate <= endDate) {
-			onChange([beginDate, endDate])
+			handlerOnChange([beginDate, endDate])
 		} else {
-			onChange([beginDate, moment(beginDate).endOf('day').toDate()])
+			handlerOnChange([beginDate, moment(beginDate).endOf('day').toDate()])
 		}
 	}
 	const changeEnd = d => {
 		const beginDate = dateRange[0]
 		const endDate = d.endOf('day').toDate()
 		if (beginDate <= endDate) {
-			onChange([beginDate, endDate])
+			handlerOnChange([beginDate, endDate])
 		} else {
-			onChange([moment(endDate).startOf('day').toDate(), endDate])
+			handlerOnChange([moment(endDate).startOf('day').toDate(), endDate])
 		}
 	}
 
-	const label = `${moment(dateRange[0]).format(dateFormat)} –
+	const interval = `${moment(dateRange[0]).format(dateFormat)} –
 		${moment(dateRange[1]).format(dateFormat)}`
 
 	const dateRangeInput = <div className="editor">
@@ -73,12 +73,18 @@ function DateRangeInput ({ mode, dateRange, onChange, options, dispatch }) {
 	</div>
 
 	return <div className="date-range-input">
+		<span>{label}</span>
 		{mode == 'opened' ? <div className="overlay" onClick={dismiss}></div> : null}
 		<div className={`input ${mode}`}>
-			<div className="caption" onClick={toggleEditing}>{label} &#8964;</div>
+			<div className="caption" onClick={toggleEditing}>{interval} &#8964;</div>
 			{mode == 'opened' ? dateRangeInput : null}
 		</div>
 	</div>
+
+	function handlerOnChange (value) {
+		dispatch(setDateRangeValue(value))
+		onChange(value)
+	}
 }
 
 function modeReducer (state = null, action) {
@@ -101,4 +107,7 @@ function setDateRangeMode (mode) {
 
 function setDateRangeValue (value) {
 	return { type: 'SET_DATE_RANGE_VALUE', value }
+}
+
+function NoOnChange () {
 }

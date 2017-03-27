@@ -4539,6 +4539,43 @@ return hooks;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(130);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
+
+
+
+
+
+
+
+/*
+* This is a dummy function to check if the function name has been altered by minification.
+* If the function has been minified and NODE_ENV !== 'production', warn the user.
+*/
+function isCrushed() {}
+
+if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+}
+
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)))
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 /*
@@ -4594,7 +4631,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 /*
@@ -4846,50 +4883,7 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(130);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
-
-
-
-
-
-
-
-/*
-* This is a dummy function to check if the function name has been altered by minification.
-* If the function has been minified and NODE_ENV !== 'production', warn the user.
-*/
-function isCrushed() {}
-
-if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-}
-
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)))
-
-/***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("buhoi-client");
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4900,6 +4894,12 @@ var inferno = __webpack_require__(178);
 module.exports = function () {
 	return inferno.NO_OP;
 };
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("buhoi-client");
 
 /***/ }),
 /* 6 */
@@ -5128,7 +5128,7 @@ __webpack_require__(169);
 var moment = __webpack_require__(0);
 var monthNames = moment.monthsShort();
 
-var _require = __webpack_require__(4),
+var _require = __webpack_require__(1),
     combineReducers = _require.combineReducers;
 
 var weekDays = moment.weekdaysShort();
@@ -5242,7 +5242,7 @@ function setValue(value) {
 "use strict";
 
 
-var read = __webpack_require__(4).actions.read;
+var read = __webpack_require__(5).actions.read;
 
 module.exports = {
 	resetQuery: resetQuery,
@@ -16857,7 +16857,7 @@ var _require = __webpack_require__(141),
     defaultPeriods = _require.defaultPeriods,
     defaultFormat = _require.defaultFormat;
 
-var _require2 = __webpack_require__(4),
+var _require2 = __webpack_require__(1),
     combineReducers = _require2.combineReducers;
 
 var Calendar = __webpack_require__(8);
@@ -17001,15 +17001,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _require$actions = __webpack_require__(4).actions,
+var _require$actions = __webpack_require__(5).actions,
     read = _require$actions.read,
     write = _require$actions.write,
     remove = _require$actions.remove;
 
-var _require = __webpack_require__(3),
+var _require = __webpack_require__(1),
     combineReducers = _require.combineReducers;
 
-var Same = __webpack_require__(5);
+var Same = __webpack_require__(4);
 
 module.exports = Edit;
 
@@ -17316,7 +17316,7 @@ module.exports = __webpack_require__(145);
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var _require = __webpack_require__(3),
+var _require = __webpack_require__(1),
     combineReducers = _require.combineReducers;
 
 __webpack_require__(172);
@@ -17508,12 +17508,12 @@ function finishSuggestion() {
 "use strict";
 
 
-var read = __webpack_require__(4).actions.read;
+var read = __webpack_require__(5).actions.read;
 
-var _require = __webpack_require__(3),
+var _require = __webpack_require__(1),
     combineReducers = _require.combineReducers;
 
-var Same = __webpack_require__(5);
+var Same = __webpack_require__(4);
 
 __webpack_require__(173);
 
@@ -17623,7 +17623,7 @@ function requestReducer() {
 "use strict";
 
 
-var _require = __webpack_require__(3),
+var _require = __webpack_require__(1),
     combineReducers = _require.combineReducers;
 
 module.exports = TextInput;
@@ -17819,7 +17819,7 @@ module.exports = exports['default'];
 var content = __webpack_require__(148);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -17888,7 +17888,7 @@ var List = __webpack_require__(134);
 var Edit = __webpack_require__(133);
 var Multiselect = __webpack_require__(136);
 var Menu = __webpack_require__(135);
-var Same = __webpack_require__(5);
+var Same = __webpack_require__(4);
 var TextInput = __webpack_require__(138);
 var Select = __webpack_require__(137);
 var Calendar = __webpack_require__(8);
@@ -17966,7 +17966,7 @@ if (process.env.NODE_ENV == 'development') {
 		};
 	};
 
-	var _require = __webpack_require__(3),
+	var _require = __webpack_require__(1),
 	    createStore = _require.createStore,
 	    combineReducers = _require.combineReducers,
 	    applyMiddleware = _require.applyMiddleware;
@@ -18017,7 +18017,7 @@ if (process.env.NODE_ENV == 'development') {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var Same = __webpack_require__(5);
+var Same = __webpack_require__(4);
 
 var _require = __webpack_require__(9),
     resetQuery = _require.resetQuery,
@@ -18130,7 +18130,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _require = __webpack_require__(3),
+var _require = __webpack_require__(1),
     combineReducers = _require.combineReducers;
 
 var defaultQuery = { filtering: {}, grouping: {}, sorting: {}, paging: {} };
@@ -18226,9 +18226,9 @@ function error() {
 "use strict";
 
 
-var navigateTo = __webpack_require__(4).actions.navigateTo;
+var navigateTo = __webpack_require__(5).actions.navigateTo;
 
-var Same = __webpack_require__(5);
+var Same = __webpack_require__(4);
 
 __webpack_require__(171);
 
@@ -18265,7 +18265,7 @@ function Menu(_ref) {
 /* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)();
+exports = module.exports = __webpack_require__(2)();
 // imports
 
 
@@ -18279,7 +18279,7 @@ exports.push([module.i, ".calendar-selected, .calendar-selectable:hover {\n  bac
 /* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)();
+exports = module.exports = __webpack_require__(2)();
 // imports
 
 
@@ -18293,7 +18293,7 @@ exports.push([module.i, ".range ul {\n  white-space: nowrap; }\n\n.range li span
 /* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)();
+exports = module.exports = __webpack_require__(2)();
 // imports
 
 
@@ -18307,7 +18307,7 @@ exports.push([module.i, "html, body, #root {\n  height: 100%;\n  padding: 0;\n  
 /* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)();
+exports = module.exports = __webpack_require__(2)();
 // imports
 
 
@@ -18321,7 +18321,7 @@ exports.push([module.i, ".menu a {\n  text-decoration: none;\n  border-bottom: 1
 /* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)();
+exports = module.exports = __webpack_require__(2)();
 // imports
 
 
@@ -18335,7 +18335,7 @@ exports.push([module.i, ".multiselect {\n  margin-bottom: 4px; }\n  .multiselect
 /* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)();
+exports = module.exports = __webpack_require__(2)();
 // imports
 
 
@@ -18349,7 +18349,7 @@ exports.push([module.i, ".select span, .select select {\n  box-sizing: border-bo
 /* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)();
+exports = module.exports = __webpack_require__(2)();
 // imports
 
 
@@ -19822,7 +19822,7 @@ function combineReducers(reducers) {
 var content = __webpack_require__(146);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -19848,7 +19848,7 @@ if(false) {
 var content = __webpack_require__(147);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -19874,7 +19874,7 @@ if(false) {
 var content = __webpack_require__(149);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -19900,7 +19900,7 @@ if(false) {
 var content = __webpack_require__(150);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -19926,7 +19926,7 @@ if(false) {
 var content = __webpack_require__(151);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -19952,7 +19952,7 @@ if(false) {
 var content = __webpack_require__(152);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(3)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {

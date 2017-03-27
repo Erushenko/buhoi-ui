@@ -1,7 +1,7 @@
 require('./style.scss')
 
 const { defaultPeriods, defaultFormat } = require('./enums')
-const { combineReducers } = require('buhoi-client')
+const { combineReducers } = require('redux')
 const Calendar = require('../calendar')
 
 const moment = require('moment')

@@ -2,7 +2,7 @@ require('./style.scss')
 
 const moment = require('moment')
 const monthNames = moment.monthsShort()
-const { combineReducers } = require('buhoi-client')
+const { combineReducers } = require('redux')
 
 const weekDays = moment.weekdaysShort()
 const firstWeekday = moment.localeData()._week.dow

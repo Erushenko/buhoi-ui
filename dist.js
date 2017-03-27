@@ -16874,8 +16874,10 @@ module.exports.actions = { setDateRangeValue: setDateRangeValue };
 var createVNode = Inferno.createVNode;
 function DateRangeInput(_ref) {
 	var mode = _ref.mode,
+	    label = _ref.label,
 	    dateRange = _ref.dateRange,
-	    onChange = _ref.onChange,
+	    _ref$onChange = _ref.onChange,
+	    onChange = _ref$onChange === undefined ? NoOnChange : _ref$onChange,
 	    options = _ref.options,
 	    dispatch = _ref.dispatch;
 
@@ -16893,7 +16895,7 @@ function DateRangeInput(_ref) {
 
 
 	if (!dateRange) {
-		onChange([moment().startOf('day').add(-7, 'days').toDate(), moment().endOf('day').toDate()]);
+		handlerOnChange([moment().startOf('day').add(-7, 'days').toDate(), moment().endOf('day').toDate()]);
 		return;
 	}
 
@@ -16908,22 +16910,22 @@ function DateRangeInput(_ref) {
 		var beginDate = d.startOf('day').toDate();
 		var endDate = dateRange[1];
 		if (beginDate <= endDate) {
-			onChange([beginDate, endDate]);
+			handlerOnChange([beginDate, endDate]);
 		} else {
-			onChange([beginDate, moment(beginDate).endOf('day').toDate()]);
+			handlerOnChange([beginDate, moment(beginDate).endOf('day').toDate()]);
 		}
 	};
 	var changeEnd = function changeEnd(d) {
 		var beginDate = dateRange[0];
 		var endDate = d.endOf('day').toDate();
 		if (beginDate <= endDate) {
-			onChange([beginDate, endDate]);
+			handlerOnChange([beginDate, endDate]);
 		} else {
-			onChange([moment(endDate).startOf('day').toDate(), endDate]);
+			handlerOnChange([moment(endDate).startOf('day').toDate(), endDate]);
 		}
 	};
 
-	var label = moment(dateRange[0]).format(dateFormat) + ' \u2013\n\t\t' + moment(dateRange[1]).format(dateFormat);
+	var interval = moment(dateRange[0]).format(dateFormat) + ' \u2013\n\t\t' + moment(dateRange[1]).format(dateFormat);
 
 	var dateRangeInput = createVNode(2, 'div', {
 		'className': 'editor'
@@ -16945,7 +16947,7 @@ function DateRangeInput(_ref) {
 
 	return createVNode(2, 'div', {
 		'className': 'date-range-input'
-	}, [mode == 'opened' ? createVNode(2, 'div', {
+	}, [createVNode(2, 'span', null, label), mode == 'opened' ? createVNode(2, 'div', {
 		'className': 'overlay'
 	}, null, {
 		'onClick': dismiss
@@ -16953,9 +16955,14 @@ function DateRangeInput(_ref) {
 		'className': 'input ' + mode
 	}, [createVNode(2, 'div', {
 		'className': 'caption'
-	}, [label, ' \u2304'], {
+	}, [interval, ' \u2304'], {
 		'onClick': toggleEditing
 	}), mode == 'opened' ? dateRangeInput : null])]);
+
+	function handlerOnChange(value) {
+		dispatch(setDateRangeValue(value));
+		onChange(value);
+	}
 }
 
 function modeReducer() {
@@ -16989,6 +16996,8 @@ function setDateRangeMode(mode) {
 function setDateRangeValue(value) {
 	return { type: 'SET_DATE_RANGE_VALUE', value: value };
 }
+
+function NoOnChange() {}
 
 /***/ }),
 /* 133 */
@@ -18032,6 +18041,8 @@ function List(props) {
 	    query = props.query,
 	    _props$Query = props.Query,
 	    Query = _props$Query === undefined ? NoQuery : _props$Query,
+	    _props$Toolbar = props.Toolbar,
+	    Toolbar = _props$Toolbar === undefined ? NoToolbar : _props$Toolbar,
 	    Table = props.Table,
 	    _props$Loading = props.Loading,
 	    Loading = _props$Loading === undefined ? DefaultLoading : _props$Loading,
@@ -18068,7 +18079,7 @@ function List(props) {
 		return createVNode(16, LoadingError, _extends({}, props));
 	}
 
-	return createVNode(2, 'div', null, [Query(props), Table(props)]);
+	return createVNode(2, 'div', null, [Query(props), Toolbar(props), Table(props)]);
 }
 
 function isNotInitialized(_ref) {
@@ -18118,6 +18129,8 @@ function DefaultLoadingError(_ref6) {
 
 	return error ? createVNode(2, 'p', null, ['Loading error: ', error.message]) : createVNode(2, 'p', null, 'Loading error');
 }
+
+function NoToolbar() {}
 
 /***/ }),
 /* 144 */
